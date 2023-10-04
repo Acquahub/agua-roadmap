@@ -1,0 +1,5 @@
+.container {
+  color: var(--primary-color);
+  font-size: var(--vote-button-font-size);
+  cursor: pointer;
+}

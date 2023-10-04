@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--standard-padding);
+  display: flex;
+  flex-direction: column;
+}
+
+.filtersContainer {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}

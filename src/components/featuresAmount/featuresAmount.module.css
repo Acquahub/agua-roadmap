@@ -1,0 +1,13 @@
+.container {
+  width: var(--features-amount-size);
+  height: var(--features-amount-size);
+  min-width: var(--features-amount-size);
+  min-height: var(--features-amount-size);
+  line-height: var(--features-amount-size);
+  font-size: var(--feature-amount-font-size);
+  background-color: var(--filter-amount-background-color);
+  border-radius: 500px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}

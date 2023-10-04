@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-top: var(--filter-padding-vertical);
+  padding-bottom: var(--filter-padding-vertical);
+  padding-left: var(--filter-padding-horizontal);
+  padding-right: var(--filter-padding-horizontal);
+  background-color: var(--status-background-color);
+  border-radius: var(--standard-border-radius);
+  cursor: pointer;
+}

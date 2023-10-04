@@ -1,0 +1,11 @@
+.container {
+  width: fit-content;
+  margin-top: calc(var(--featurelist-margin) / 2);
+  padding-left: var(--tag-padding-horizontal);
+  padding-right: var(--tag-padding-horizontal);
+  padding-top: var(--tag-padding-vertical);
+  padding-bottom: var(--tag-padding-vertical);
+  font-size: var(--tag-font-size);
+  border-radius: var(--border-radius);
+  background-color: var(--tag-background-color);
+}

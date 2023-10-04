@@ -1,0 +1,9 @@
+.container {
+  width: var(--featurelist-width);
+  height: fit-content;
+  background-color: var(--featurelist-background-color);
+  border-radius: var(--border-radius);
+  padding: var(--featurelist-padding);
+  margin: var(--featurelist-margin);
+  box-sizing: border-box;
+}
