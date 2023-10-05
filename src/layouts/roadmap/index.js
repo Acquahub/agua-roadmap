@@ -1,11 +1,13 @@
 import styles from './roadmap.module.css';
 import SectionTitle from '../../components/sectionTitle';
-
+import React from 'react';
 import FeaturesList from '../featuresList';
 
 export default function RoadMap({ features }) {
 
   const statusFromFeatures = [...(new Set(features.map((feature) => feature.status)))];
+
+    
 
   return (
     <div className={styles['container']}>
@@ -17,11 +19,13 @@ export default function RoadMap({ features }) {
           statusFromFeatures.map((status) => {
             const featuresWithStatus = features.filter((feature) => feature.status === status);
             return (
-              <FeaturesList title={status} features={featuresWithStatus} />
+              <FeaturesList key={status} title={status} features={featuresWithStatus} />
             );
           })
         }
       </div>
     </div>
   )
+
+  
 }

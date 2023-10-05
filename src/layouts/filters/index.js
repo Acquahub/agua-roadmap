@@ -2,18 +2,25 @@ import styles from './filters.module.css';
 import SectionTitle from '../../components/sectionTitle';
 import Filter from '../filter';
 
-export default function Filters({ filters }) {
+
+export default function Filters({ filters, onSelectFilter }) {
   return (
     <div className={styles['container']}>
       <div style={{ marginLeft: 'var(--filter-margin)' }}>
         <SectionTitle title="Filters" />
-      </div>
+      </div>  
       <div className={styles['filtersContainer']}>
-        {filters.map((filter) => {
-          return (
-            <Filter title={filter.name} amount={filter.amount} />
-          );
-        })}
+        {filters.map((filter) => (
+          <div key={filter.name} onClick={() => onSelectFilter(filter.name)} className="filter">
+
+            <Filter
+            key={filter.name} 
+            title={filter.name}
+            amount={filter.amount}
+            onSelectFilter={onSelectFilter}
+            />          
+          </div>
+        ))}
       </div>
     </div>
   )
