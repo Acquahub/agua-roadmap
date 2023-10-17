@@ -12,7 +12,7 @@ export default function FeaturesList({ title, features }) {
       <div style={{ marginTop: 'var(--featurelist-margin)' }}>
         {features.map(feature => {
           return (
-            <Feature title={feature.title} votes={feature.votes} tag={feature.tag} />
+            <Feature key={feature.id} title={feature.title} votes={feature.votes} tag={feature.tag} />
           )
         })}
       </div>
