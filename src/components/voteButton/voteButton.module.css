@@ -2,4 +2,10 @@
   color: var(--primary-color);
   font-size: var(--vote-button-font-size);
   cursor: pointer;
+  font-family: var(--primary-font);
+  text-align: center;
 }
+.container:hover {
+  color: var(--vote-primary-color);
+}
+

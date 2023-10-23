@@ -1,9 +1,16 @@
 .container {
   width: var(--featurelist-width);
-  height: fit-content;
+  height: 500px;
   background-color: var(--featurelist-background-color);
   border-radius: var(--border-radius);
   padding: var(--featurelist-padding);
   margin: var(--featurelist-margin);
+  border: 1px solid var(--featurelist-border-color);
   box-sizing: border-box;
+  overflow: scroll;
+}
+
+.cont{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

@@ -8,43 +8,55 @@ body,
   height: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  overflow: hidden;
+  overflow: visible;
+  background-color: #fafafa;
 }
 
 :root {
   --border-color: #ccc;
-  --standard-padding: 64px;
+  --standard-padding: 20px 40px;
   --features-amount-size: 25px;
   --subtitle-font-size: 18px;
-  --section-title-font-size: 25px;
-  --filter-width: 200px;
-  --filter-padding-vertical: 8px;
-  --filter-padding-horizontal: 16px;
-  --filter-background-color: #ccc;
-  --status-background-color: #fff;
+  --section-title-font-size: 1.125rem;
+  --filter-width: 300px;
+  --filter-padding-vertical: 4px;
+  --filter-padding-horizontal: 4px;
+  --filter-background-color: #fff;
+  --status-background-color: #fafafa;
   --feature-amount-font-size: 12px;
-  --standard-border-radius: 4px;
+  --standard-border-radius: 6px;
   --filter-margin: 16px;
-  --filter-amount-background-color: #fff;
-  --featurelist-width: 400px;
-  --featurelist-background-color: #ccc;
-  --border-radius: 4px;
-  --featurelist-padding: 16px;
-  --featurelist-margin: 16px;
+  --filter-amount-background-color: #e4e4e7;
+  --featurelist-width: 350px;
+  --featurelist-background-color: #f4f4f5;
+  --border-radius: 6px;
+  --featurelist-padding: 10px 8px 0px 8px;
+  --featurelist-margin: 5px;
+  --featurelist-border-color: #eeeeee;
   --feature-background-color: #fff;
   --feature-padding: 16px;
-  --primary-color: blue;
+  --feature-border-color: #e4e4e7;
+  --primary-color: #3f3f46;
+  --primary-font: 'Inter', sans-serif;
+  --vote-primary-color:#645aff;
   --vote-button-font-size: 16px;
   --feature-margin-left-from-button: 8px;
   --tag-padding-horizontal: 8px;
   --tag-padding-vertical: 4px;
-  --tag-font-size: 14px;
-  --tag-background-color: #ccc;
+  --tag-font-size: .8rem;
+  --tag-background-color: #f4f4f5;
+  --search-input-padding: 8px;
 }
 
 .containerApp {
-  width: 100%;
-  height: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 36px !important;
+  margin-bottom: 64px !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+
   display: flex;
   flex-direction: column;
 }

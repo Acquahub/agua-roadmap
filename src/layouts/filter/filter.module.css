@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid var(--feature-border-color);
   padding-top: var(--filter-padding-vertical);
   padding-bottom: var(--filter-padding-vertical);
   padding-left: var(--filter-padding-horizontal);
@@ -11,4 +12,13 @@
   border-radius: var(--standard-border-radius);
   margin: var(--filter-margin);
   cursor: pointer;
+}
+
+.container:hover {
+  background-color: var(--featurelist-background-color);
+}
+
+.selected {
+  background-color: var(--featurelist-background-color);
+  border-color: var(--vote-primary-color);
 }

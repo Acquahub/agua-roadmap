@@ -3,7 +3,7 @@ import SectionTitle from '../../components/sectionTitle';
 import Filter from '../filter';
 
 
-export default function Filters({ filters, onSelectFilter }) {
+export default function Filters({ filters, onSelectFilter, selectedFilter }) {
   return (
     <div className={styles['container']}>
       <div style={{ marginLeft: 'var(--filter-margin)' }}>
@@ -18,6 +18,7 @@ export default function Filters({ filters, onSelectFilter }) {
             title={filter.name}
             amount={filter.amount}
             onSelectFilter={onSelectFilter}
+            selected={selectedFilter}
             />          
           </div>
         ))}

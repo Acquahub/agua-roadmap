@@ -1,3 +1,6 @@
 .title {
   font-size: var(--section-title-font-size);
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+  font-weight: bold;
 }

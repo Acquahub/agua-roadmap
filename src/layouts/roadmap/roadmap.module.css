@@ -5,7 +5,6 @@
   padding: var(--standard-padding);
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
 }
 
 .containerRoadmap {
@@ -13,5 +12,21 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: var(--standard-padding) !important;
+}
+
+.agua{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+
+}
+.agua:hover{
+    color: var(--vote-primary-color);
+
 }

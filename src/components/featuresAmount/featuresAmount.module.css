@@ -7,7 +7,7 @@
   font-size: var(--feature-amount-font-size);
   background-color: var(--filter-amount-background-color);
   border-radius: 500px;
-  font-weight: 700;
+ font-family: var(--primary-font); ;
   display: flex;
   justify-content: center;
 }

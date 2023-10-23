@@ -14,7 +14,15 @@ export default function VoteButton({ votes }) {
 
   return (
     <div onClick={() => increaseVotes()} className={styles['container']}>
-      +{currentVotes}
+
+            <div>
+                <i className="fa-solid fa-angle-up"></i>
+            </div>
+
+            <div>
+                {currentVotes}
+            </div>
+
     </div>
   )
 }

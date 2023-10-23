@@ -1,13 +1,18 @@
 .container {
   width: 100%;
   box-sizing: border-box;
-  height: fit-content;
+  height: 95px;
   background-color: var(--feature-background-color);
   border-radius: var(--border-radius);
   padding: var(--feature-padding);
-  margin-top: var(--featurelist-margin);
+  margin-bottom: var(--featurelist-margin);
+  border: 1px solid var(--feature-border-color);
   display: flex;
   flex-direction: column;
+}
+
+.container:hover {
+  background-color: var(--featurelist-background-color);
 }
 
 .titleContainer {

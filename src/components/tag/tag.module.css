@@ -8,4 +8,5 @@
   font-size: var(--tag-font-size);
   border-radius: var(--border-radius);
   background-color: var(--tag-background-color);
+  font-family: var(--primary-font);
 }
