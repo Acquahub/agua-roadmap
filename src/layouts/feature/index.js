@@ -4,12 +4,12 @@ import VoteButton from '../../components/voteButton';
 import Subtitle from '../../components/subtitle';
 import Tag from '../../components/tag';
 
-export default function Feature({ title, votes, tag }) {
+export default function Feature({ title, votes, tag, notifyParentVotesChanged }) {
 
   return (
     <div className={styles['container']}>
       <div className={styles['titleContainer']}>
-        <VoteButton votes={votes} />
+        <VoteButton notifyParentVotesChanged={notifyParentVotesChanged} votes={votes} />
         <div style={{ marginLeft: 'var(--feature-margin-left-from-button)' }}>
           <Subtitle title={title} />
         </div>
