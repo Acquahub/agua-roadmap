@@ -1,0 +1,17 @@
+input{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid var(--feature-border-color);
+    border-radius: var(--standard-border-radius);
+    padding: var(--search-input-padding);
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: var(--filter-background-color);
+    outline: none;
+    font-family: var(--primary-font);
+}
+
+
+input:hover {
+    border-color: var(--vote-primary-color);
+}
