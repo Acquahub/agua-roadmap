@@ -6,25 +6,25 @@ export default function VoteButton({ votes, notifyParentVotesChanged }) {
   const [currentVotes, setCurrentVotes] = useState(parseInt(votes));
   const [userVoted, setUserVoted] = useState(false);
 
-  const increaseVotes = () => {
-    let newVotesAmount;
-    if (!userVoted) newVotesAmount = currentVotes + 1;
-    else newVotesAmount = currentVotes - 1;
-    setCurrentVotes(newVotesAmount);
-    setUserVoted(!userVoted);
-    notifyParentVotesChanged(newVotesAmount);
-  }
+    const toggleVote = () => {
+        const newVotesAmount = userVoted ? currentVotes - 1 : currentVotes + 1;
+        setCurrentVotes(newVotesAmount);
+        setUserVoted(!userVoted);
+        notifyParentVotesChanged(newVotesAmount);
+    };
 
-  return (
-    <div onClick={() => increaseVotes()} className={styles['container']}>
+    const buttonClass = userVoted ? styles.selected : '';
 
-      <div>
-        <i className="fa-solid fa-angle-up"></i>
-      </div>
+    return (
+        <div onClick={() => toggleVote()} className={`${styles.container} ${buttonClass}`}>
 
-      <div>
-        {currentVotes}
-      </div>
+          <div >
+            <i className="fa-solid fa-angle-up"></i>
+          </div>
+
+          <div >
+            {currentVotes}
+          </div>
 
     </div>
   )

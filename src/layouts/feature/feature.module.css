@@ -1,14 +1,13 @@
 .container {
   width: 100%;
   box-sizing: border-box;
-  height: 95px;
+  height: fit-content;
   background-color: var(--feature-background-color);
   border-radius: var(--border-radius);
   padding: var(--feature-padding);
   margin-bottom: var(--featurelist-margin);
   border: 1px solid var(--feature-border-color);
   display: flex;
-  flex-direction: column;
 }
 
 .container:hover {
@@ -16,6 +15,13 @@
 }
 
 .titleContainer {
+height: auto;
+}
+
+.containerInfo {
+  width: 100%;
+  margin-left: 10px;
+  height: fit-content;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }

@@ -1,18 +1,24 @@
 import styles from './roadmap.module.css';
 import SectionTitle from '../../components/sectionTitle';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import FeaturesList from '../featuresList';
 import Subtitle from "../../components/subtitle";
+import CreateFeatureModal from "../../components/createFeatureModal";
 
 export default function RoadMap({ features, status, notifyParentVotesChanged }) {
 
+    const [showFeatureForm, setShowFeatureForm] = useState(false);
 
+    const handleShowFeatureForm = () => {
+        setShowFeatureForm(true);
+    };
+
+    const handleCloseFeatureForm = () => {
+        setShowFeatureForm(false);
+    };
 
   const statusFromFeatures = [...(new Set(features.map((feature) => feature.status)))];
-
-  console.log(statusFromFeatures)
-  console.log(features)
-  console.log('status', status)
 
   if (statusFromFeatures.length === 0) {
     return (
@@ -37,6 +43,11 @@ export default function RoadMap({ features, status, notifyParentVotesChanged }) 
         <div style={{ marginLeft: 'var(--filter-margin)' }}>
           <SectionTitle title="Roadmap" />
         </div>
+          <div className={styles['buttonContainer']}>
+              <Button variant="outline-secondary" size={'sm'} onClick={handleShowFeatureForm}>
+                  Create Feature
+              </Button>
+          </div>
         <div className={styles['containerRoadmap']}>
           {
             status.map((status) => {
@@ -46,6 +57,7 @@ export default function RoadMap({ features, status, notifyParentVotesChanged }) 
               );
             })
           }
+            <CreateFeatureModal show={showFeatureForm} handleClose={handleCloseFeatureForm} />
         </div>
       </div>
     )
@@ -55,6 +67,11 @@ export default function RoadMap({ features, status, notifyParentVotesChanged }) 
       <div style={{ marginLeft: 'var(--filter-margin)' }}>
         <SectionTitle title="Roadmap" />
       </div>
+        <div className={styles['buttonContainer']}>
+            <Button variant="outline-secondary" size={'sm'} onClick={handleShowFeatureForm}>
+                Create Feature
+            </Button>
+        </div>
       <div className={styles['containerRoadmap']}>
         {
           status.map((status) => {
@@ -64,6 +81,7 @@ export default function RoadMap({ features, status, notifyParentVotesChanged }) 
             );
           })
         }
+          <CreateFeatureModal show={showFeatureForm} handleClose={handleCloseFeatureForm} />
       </div>
       <div className={styles['agua']} >
         <i style={{ marginRight: '5px' }} className="fa-solid fa-droplet"></i>

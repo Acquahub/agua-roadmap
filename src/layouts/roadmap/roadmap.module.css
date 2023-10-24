@@ -12,8 +12,9 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   margin-bottom: var(--standard-padding) !important;
+    margin-left: var(--filter-margin);
 }
 
 .agua{
@@ -28,5 +29,15 @@
 }
 .agua:hover{
     color: var(--vote-primary-color);
+
+}
+
+.buttonContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: var(--filter-margin);
 
 }

@@ -21,8 +21,10 @@ export default function FeaturesList({ title, features, notifyParentVotesChanged
                 <div>
                     {features.map(feature => {
                         return (
-                            <Feature key={feature.id} notifyParentVotesChanged={(amount) => receiveVotes(feature.id, amount)} title={feature.title} votes={feature.votes}
-                                tag={feature.tag} />
+                            <Feature key={feature.id}
+                                     notifyParentVotesChanged={(amount) => receiveVotes(feature.id, amount)}
+                                     title={feature.title} votes={feature.votes}
+                                     tag={feature.tag} />
                         )
                     })}
                 </div>

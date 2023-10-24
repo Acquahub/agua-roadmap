@@ -10,13 +10,14 @@ export default function Feature({ title, votes, tag, notifyParentVotesChanged })
     <div className={styles['container']}>
       <div className={styles['titleContainer']}>
         <VoteButton notifyParentVotesChanged={notifyParentVotesChanged} votes={votes} />
-        <div style={{ marginLeft: 'var(--feature-margin-left-from-button)' }}>
+      </div>
+        <div className={styles.containerInfo}>
           <Subtitle title={title} />
+
+          <div style={{ display: 'flex', width: '100%', justifyContent: 'flex-end' }}>
+            <Tag tag={tag} />
+          </div>
         </div>
-      </div>
-      <div style={{ display: 'flex', width: '100%', justifyContent: 'flex-end' }}>
-        <Tag tag={tag} />
-      </div>
 
     </div>
   )

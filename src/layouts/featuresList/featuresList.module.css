@@ -8,6 +8,7 @@
   border: 1px solid var(--featurelist-border-color);
   box-sizing: border-box;
   overflow: scroll;
+  margin-left: var(--filter-margin);
 }
 
 .cont{
