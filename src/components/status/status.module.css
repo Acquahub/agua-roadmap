@@ -9,5 +9,4 @@
   padding-right: var(--filter-padding-horizontal);
   background-color: var(--status-background-color);
   border-radius: var(--standard-border-radius);
-  cursor: pointer;
 }

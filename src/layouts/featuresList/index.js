@@ -6,6 +6,8 @@ import Feature from '../feature';
 
 export default function FeaturesList({ title, features, notifyParentVotesChanged }) {
 
+    const sortedFeatures = features.slice().sort((a, b) => b.votes - a.votes);
+
 
     const receiveVotes = (id, amount) => {
         notifyParentVotesChanged(id, amount);
@@ -19,12 +21,15 @@ export default function FeaturesList({ title, features, notifyParentVotesChanged
             <div className={styles['container']}>
 
                 <div>
-                    {features.map(feature => {
+                    {sortedFeatures.map(feature => {
                         return (
                             <Feature key={feature.id}
                                      notifyParentVotesChanged={(amount) => receiveVotes(feature.id, amount)}
-                                     title={feature.title} votes={feature.votes}
-                                     tag={feature.tag} />
+                                     title={feature.title}
+                                     votes={feature.votes}
+                                     tag={feature.tag}
+                                     description={feature.description}
+                                     status={feature.status}/>
                         )
                     })}
                 </div>

@@ -24,4 +24,5 @@ height: auto;
   height: fit-content;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }

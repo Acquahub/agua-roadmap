@@ -4,7 +4,7 @@ input{
     border: 1px solid var(--feature-border-color);
     border-radius: var(--standard-border-radius);
     padding: var(--search-input-padding);
-    margin-top: 20px;
+    margin-top: 5px;
     box-sizing: border-box;
     background-color: var(--filter-background-color);
     outline: none;
@@ -15,3 +15,4 @@ input{
 input:hover {
     border-color: var(--vote-primary-color);
 }
+

@@ -1,0 +1,44 @@
+.commentsContainer {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.commentsList {
+    list-style: none;
+    padding: 0;
+}
+
+.comment {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.commentInputContainer {
+    display: flex;
+    margin-top: 20px;
+}
+
+.commentInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.addCommentButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.addCommentButton:hover {
+    background-color: #0056b3;
+}
