@@ -10,9 +10,7 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
     const [validate, setValidate] = useState(false);
 
 
-    function generateUniqueId() {
-        return Math.random().toString(36).substr(2, 9);
-    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,11 +21,10 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
             e.stopPropagation();
         } else {
             const newFeature = {
-                id: generateUniqueId(),
                 title: title,
                 description: description,
                 tag: selectedTags,
-                status: 'Open',
+                status: 'Done',
                 votes: 0,
             };
 

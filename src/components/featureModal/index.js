@@ -8,7 +8,7 @@ import Comments from "../comments";
 export default function FeatureModal({ feature, onClose,notifyParentVotesChanged }) {
     return (
         <Modal show={true} onHide={onClose} centered size={"xl"}>
-            <Modal.Header >
+            <Modal.Header className={styles.modal_header} >
 
 
             <div className={styles['container']}>
@@ -29,7 +29,17 @@ export default function FeatureModal({ feature, onClose,notifyParentVotesChanged
 
             </div>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className={styles.modal_body}>
+                <div className={styles.entryDivider}>
+                    <div className={styles.entry_divider_child} >
+                        <span className={styles.entry_divider_icon}>
+                            <i className="fa-solid fa-sliders"></i>
+                        </span>
+                        <h5 className={styles.text_base}>
+                            <Subtitle title="Activity" />
+                        </h5>
+                    </div>
+                </div>
                 <Comments />
             </Modal.Body>
             <Modal.Footer>
