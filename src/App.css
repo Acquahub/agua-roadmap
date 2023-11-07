@@ -18,7 +18,8 @@ body,
   --features-amount-size: 25px;
   --subtitle-font-size: 18px;
   --section-title-font-size: 1.125rem;
-  --filter-width: 390px;
+  /* --filter-width: 390px; */
+  --filter-width: 20.3rem;
   --filter-padding-vertical: 4px;
   --filter-padding-horizontal: 4px;
   --filter-background-color: #fff;
@@ -27,7 +28,8 @@ body,
   --standard-border-radius: 6px;
   --filter-margin: 5px 5px 10px 5px;
   --filter-amount-background-color: #e4e4e7;
-  --featurelist-width: 390px;
+  /* --featurelist-width: 390px; */
+  --featurelist-width: 20.3rem;
   --featurelist-background-color: #f4f4f5;
   --border-radius: 6px;
   --featurelist-padding: 10px 8px 0px 8px;
