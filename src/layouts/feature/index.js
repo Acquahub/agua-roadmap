@@ -6,16 +6,17 @@ import Tag from '../../components/tag';
 import FeatureModal from '../../components/featureModal';
 import {useState} from "react";
 
-export default function Feature({ title, votes, description, tag, status }) {
+export default function Feature({ title, votes, description, tag, status, notifyParentVotesChanged }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userVoted, setUserVoted] = useState(false);
-  const [changingVotes, setVotes] = useState(votes);
+  const [changingVotes, setVotes] = useState(parseInt(votes));
 
   const openModal = () => {
     setIsModalOpen(true);
   }
 
-  const closeModal = () => {
+  const closeModal = (amount) => {
+    notifyParentVotesChanged(amount);
     setIsModalOpen(false);
   }
 
@@ -23,8 +24,9 @@ export default function Feature({ title, votes, description, tag, status }) {
     setUserVoted(!userVoted);
   }
 
-  const notifyParentVotesChanged = (id, amount) => {
+  const notifyFeatureVotesChanged = (amount) => {
     setVotes(amount);
+    notifyParentVotesChanged(amount);
 }
 
   return (
@@ -33,7 +35,7 @@ export default function Feature({ title, votes, description, tag, status }) {
         <VoteButton 
           votes={changingVotes}
           userVotedInit={userVoted}
-          notifyParentVotesChanged={notifyParentVotesChanged} 
+          notifyParentVotesChanged={notifyFeatureVotesChanged} 
           notifyUserVoted={notifyUserVoted}
          />
       </div>
@@ -48,11 +50,11 @@ export default function Feature({ title, votes, description, tag, status }) {
       {isModalOpen && (
           <FeatureModal
               feature={{
-                title,
-                description,
-                tag,
-                status,
-                changingVotes,
+                title: title,
+                description: description,
+                tag: tag,
+                status: status,
+                votes: changingVotes,
               }}
               userVoted={userVoted}
               onClose={closeModal}

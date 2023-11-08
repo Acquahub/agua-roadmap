@@ -6,7 +6,7 @@ import Subtitle from "../subtitle";
 import Tag from "../tag";
 import Comments from "../comments";
 
-export default function FeatureModal({ feature, userVoted, onClose,notifyParentVotesChanged, notifyUserVoted }) {
+export default function FeatureModal({ feature, userVoted, onClose, notifyParentVotesChanged, notifyUserVoted }) {
     return (
         <Modal show={true} onHide={onClose} centered size={"xl"}>
             <Modal.Header >
@@ -40,7 +40,7 @@ export default function FeatureModal({ feature, userVoted, onClose,notifyParentV
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={onClose}>
+                <Button variant="secondary" onClick={() => {onClose(feature.votes)}}>
                     Close
                 </Button>
             </Modal.Footer>
