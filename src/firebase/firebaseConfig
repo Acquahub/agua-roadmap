@@ -1,0 +1,14 @@
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA_u2xZk5efn-rl7BAX67U1lIpSQigIwX0",
+//   authDomain: "acqua-cb27b.firebaseapp.com",
+//   databaseURL: "https://acqua-cb27b-default-rtdb.firebaseio.com",
+//   projectId: this.projectId,
+//   storageBucket: "acqua-cb27b.appspot.com",
+//   messagingSenderId: "633435186488",
+//   appId: "1:633435186488:web:1673294a500f0386220dcd",
+//   measurementId: "G-R5WLC0NS8Q",
+// };
+
+
+
+export { firebaseConfig }
