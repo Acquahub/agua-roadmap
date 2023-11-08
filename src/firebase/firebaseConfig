@@ -10,5 +10,15 @@
 // };
 
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCAD9wmH7LYp2zTm4n8y0eJlfvgjSi8WMI",
+    authDomain: "roadmap-test0.firebaseapp.com",
+    projectId: "roadmap-test0",
+    storageBucket: "roadmap-test0.appspot.com",
+    messagingSenderId: "793314467036",
+    appId: "1:793314467036:web:56ad552545064fd2a7e819"
+};
+
+
 
 export { firebaseConfig }

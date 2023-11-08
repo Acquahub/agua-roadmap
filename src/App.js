@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, addDoc, doc, updateDoc } from 'firebase/firestore';
-// import { db } from './firebase/firebaseConfig';
+import { db } from './firebase/firebaseConfig';
 import Filters from './layouts/filters';
 import RoadMap from './layouts/roadmap';
 import Search from './layouts/search';
