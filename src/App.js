@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, addDoc, doc, updateDoc } from 'firebase/firestore';
-import { db } from './firebase/firebaseConfig';
+import { db } from './firebase/firebaseConfig.js';
 import Filters from './layouts/filters';
 import RoadMap from './layouts/roadmap';
 import Search from './layouts/search';
@@ -13,18 +13,9 @@ function App() {
     const [filters, setFilters] = useState([]);
     const [features, setFeatures] = useState([]);
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyCAD9wmH7LYp2zTm4n8y0eJlfvgjSi8WMI",
-        authDomain: "roadmap-test0.firebaseapp.com",
-        projectId: "roadmap-test0",
-        storageBucket: "roadmap-test0.appspot.com",
-        messagingSenderId: "793314467036",
-        appId: "1:793314467036:web:56ad552545064fd2a7e819"
-    };
-
     useEffect(() => {
         const fetchData = async () => {
-            const featuresCollection = collection(db, process.env.REACT_APP_DATABASE_NAME);
+            const featuresCollection = collection(db, 'features');
             const featuresSnapshot = await getDocs(featuresCollection);
             const featureData = featuresSnapshot.docs.map((doc) => ({
                 id: doc.id,
