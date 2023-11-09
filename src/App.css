@@ -48,13 +48,15 @@ body,
   --tag-font-size: .8rem;
   --tag-background-color: #f4f4f5;
   --search-input-padding: 8px;
+  --feature-modal: 0 16px;
+  --feature-modal-activity: 0 16px;
 }
 
 .containerApp {
 
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0px !important;
+  margin-top: 0 !important;
   margin-bottom: 64px !important;
   padding-right: 20px !important;
   padding-left: 20px !important;

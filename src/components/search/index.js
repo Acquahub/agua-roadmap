@@ -3,7 +3,7 @@ import styles from "./search.module.css";
 
 export default function Search({searchText, onSearchChange }) {
     return (
-        <div>
+        <div className={styles.search}>
             <input
                 type="text"
                 value={searchText}

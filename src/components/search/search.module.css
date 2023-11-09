@@ -1,4 +1,4 @@
-input{
+.search input{
     width: 100%;
     height: fit-content;
     border: 1px solid var(--feature-border-color);
@@ -12,7 +12,7 @@ input{
 }
 
 
-input:hover {
+.search :hover {
     border-color: var(--vote-primary-color);
 }
 

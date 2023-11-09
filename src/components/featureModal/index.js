@@ -9,7 +9,7 @@ import Comments from "../comments";
 export default function FeatureModal({ feature, userVoted, onClose, notifyParentVotesChanged, notifyUserVoted }) {
     return (
         <Modal show={true} onHide={onClose} centered size={"xl"}>
-            <Modal.Header >
+            <Modal.Header className={styles.modal_header} >
 
                 <div className={styles['container']}>
                     <div className={styles['titleContainer']}>
