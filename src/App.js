@@ -21,12 +21,17 @@ function App() {
                 id: doc.id,
                 ...doc.data(),
             }));
-            setFeatures(featureData);
+
+            const sortedFeatures = featureData.sort((a, b) => {
+                const statusOrder = { "Open": 1, "In Progress": 2, "Done": 3 };
+                return statusOrder[a.status] - statusOrder[b.status];
+            });
+
+            setFeatures(sortedFeatures);
         };
 
         fetchData();
     }, [features]);
-
 
 
     useEffect(() => {
@@ -43,6 +48,18 @@ function App() {
             setFilters(newFilters);
 
     }, [features, ]);
+
+    function sortFeatures() {
+        /*
+            TODO: This can be improved by applying a more efficient sorting method
+            e.g. pigeonHole sort, comb sort, heap sort, etc.
+        */         
+       for(let feature of features){
+            if(feature.status === 'Open'){
+                
+            }
+       }
+    }
 
     const handleFilterSelect = (filterName) => {
         if (selectedFilter === filterName) setSelectedFilter(null);
