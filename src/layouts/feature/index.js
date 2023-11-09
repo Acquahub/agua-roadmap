@@ -16,7 +16,6 @@ export default function Feature({ title, votes, description, tag, status, notify
   }
 
   const closeModal = (amount) => {
-    notifyParentVotesChanged(amount);
     setIsModalOpen(false);
   }
 

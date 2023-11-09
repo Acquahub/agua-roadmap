@@ -31,7 +31,7 @@ function App() {
         };
 
         fetchData();
-    }, [features]);
+    }, []);
 
 
     useEffect(() => {
@@ -71,19 +71,27 @@ function App() {
     };
 
     const notifyParentVotesChanged = async (id, amount) => {
+        console.log('New amount: ' + amount)
+
         try {
-            const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, id);
-            await updateDoc(featureRef, { votes: amount });
+            
 
 
             const featuresCopy = [...features];
             const mElem = featuresCopy.find((elem) => elem.id === id);
             mElem.votes = amount;
             setFeatures(featuresCopy);
+
+            console.log(featuresCopy);
+
+            const featureRef = doc(db, 'features', id);
+            await updateDoc(featureRef, { votes: amount });
         } catch (error) {
             console.error("Error updating votes in database", error);
         }
     };
+
+    console.log(features);
 
     const onFeatureCreate = async (newFeature) => {
         try {
@@ -108,6 +116,8 @@ function App() {
         : features.filter((feature) =>
             feature.title.toLowerCase().includes(searchText.toLowerCase())
         );
+
+    console.log(filteredFeatures);
 
 
     return (
