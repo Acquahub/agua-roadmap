@@ -27,7 +27,6 @@ export default function FeaturesList({ title, features, notifyParentVotesChanged
                                      notifyParentVotesChanged={(amount) => receiveVotes(feature.id, amount)}
                                      title={feature.title}
                                      votes={feature.votes}
-                                     
                                      tag={feature.tag}
                                      description={feature.description}
                                      status={feature.status}/>

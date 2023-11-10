@@ -12,7 +12,6 @@ export default function VoteButton({ votes, userVotedInit, notifyParentVotesChan
         setUserVoted(!userVoted);
         notifyUserVoted();
         notifyParentVotesChanged(newVotesAmount);
-        
     };
 
     const buttonClass = userVoted ? styles.selected : '';

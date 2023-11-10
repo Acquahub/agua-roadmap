@@ -60,7 +60,12 @@ export default function RoadMap({ features, status, notifyParentVotesChanged, on
             status.map((status) => {
               const featuresWithStatus = features.filter((feature) => feature.status === status);
               return (
-                <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} key={status} title={status} features={featuresWithStatus} />
+                <FeaturesList 
+                  notifyParentVotesChanged={notifyParentVotesChanged} 
+                  key={status} 
+                  title={status} 
+                  features={featuresWithStatus} 
+                />
               );
             })
           }
