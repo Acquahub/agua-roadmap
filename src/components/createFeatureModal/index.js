@@ -24,7 +24,7 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
                 title: title,
                 description: description,
                 tag: selectedTags,
-                status: 'Done',
+                status: 'Open',
                 votes: 0,
             };
 
@@ -45,10 +45,10 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
     return (
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={true} centered>
             <Form noValidate validated={validate} onSubmit={handleSubmit}>
-            <Modal.Header closeButton>
-                <Modal.Title>Create Feature</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+                <Modal.Header closeButton>
+                    <Modal.Title>Create Feature</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
                     <Form.Group controlId="title">
                         <Form.Label>Title</Form.Label>
@@ -91,15 +91,15 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
                         </Form.Select>
                     </Form.Group>
 
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" type="submit">
-                    Create
-                </Button>
-            </Modal.Footer>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" type="submit">
+                        Create
+                    </Button>
+                </Modal.Footer>
             </Form>
         </Modal>
     );
