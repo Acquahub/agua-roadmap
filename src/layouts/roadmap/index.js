@@ -1,6 +1,6 @@
 import styles from './roadmap.module.css';
 import SectionTitle from '../../components/sectionTitle';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import FeaturesList from '../featuresList';
 import Subtitle from "../../components/subtitle";
@@ -38,6 +38,7 @@ export default function RoadMap({ features, status, notifyParentVotesChanged, on
             <div className={styles['titleContainer']}>
               <div style={{ marginLeft: 'var(--feature-margin-left-from-button)' }}>
                 <Subtitle title="No features" />
+                <CreateFeatureModal show={showFeatureForm} handleClose={handleCloseFeatureForm}  onFeatureCreate={onFeatureCreate}/>
               </div>
             </div>
           </div>
@@ -69,7 +70,9 @@ export default function RoadMap({ features, status, notifyParentVotesChanged, on
               );
             })
           }
-            <CreateFeatureModal show={showFeatureForm} handleClose={handleCloseFeatureForm} />
+          <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} title="In Progress" features={[]} />
+          <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} title="Done" features={[]} />
+          <CreateFeatureModal show={showFeatureForm} handleClose={handleCloseFeatureForm}  onFeatureCreate={onFeatureCreate}/>
         </div>
       </div>
     )

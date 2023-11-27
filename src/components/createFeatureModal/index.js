@@ -10,9 +10,7 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
     const [validate, setValidate] = useState(false);
 
 
-    function generateUniqueId() {
-        return Math.random().toString(36).substr(2, 9);
-    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,7 +21,6 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
             e.stopPropagation();
         } else {
             const newFeature = {
-                // id: generateUniqueId(),
                 title: title,
                 description: description,
                 tag: selectedTags,
@@ -48,10 +45,10 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
     return (
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={true} centered>
             <Form noValidate validated={validate} onSubmit={handleSubmit}>
-            <Modal.Header closeButton>
-                <Modal.Title>Create Feature</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+                <Modal.Header closeButton>
+                    <Modal.Title>Create Feature</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
                     <Form.Group controlId="title">
                         <Form.Label>Title</Form.Label>
@@ -94,15 +91,15 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
                         </Form.Select>
                     </Form.Group>
 
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" type="submit">
-                    Create
-                </Button>
-            </Modal.Footer>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" type="submit">
+                        Create
+                    </Button>
+                </Modal.Footer>
             </Form>
         </Modal>
     );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './comments.module.css';
-import { Button, Form, ListGroup } from 'react-bootstrap';
+
+import { Button } from 'react-bootstrap';
 
 export default function Comments() {
     const [comment, setComment] = useState('');
@@ -10,39 +11,41 @@ export default function Comments() {
         setComment(event.target.value);
     };
 
-    const handleAddComment = () => {
+    const handleCommentSubmit = () => {
         if (comment.trim() !== '') {
-            setCommentsList([...commentsList, comment]);
+            const currentDate = new Date();
+            const newComment = {
+                text: comment,
+                date: currentDate,
+            };
+            setCommentsList([...commentsList, newComment]);
             setComment('');
         }
     };
 
     return (
         <div className={styles.commentsContainer}>
-            <h3>Comments</h3>
-            <Form>
-                <Form.Group className={styles.commentInputContainer}>
-                    <Form.Control
-                        type="text"
-                        value={comment}
-                        onChange={handleCommentChange}
-                        placeholder="Add a comment..."
-                        className={styles.commentInput}
-                    />
-                    <Button onClick={handleAddComment} variant="outline-secondary" size="sm">
-                        Add Comment
-                    </Button>
-                </Form.Group>
-            </Form>
-            <div className={styles.commentsList}>
-                <ListGroup>
-                    {commentsList.map((comment, index) => (
-                        <ListGroup.Item key={index}>
-                            {comment}
-                        </ListGroup.Item>
-                    ))}
-                </ListGroup>
+            <div className={styles.commentInput}>
+                <input
+                    type="text"
+                    placeholder="Add your comment..."
+                    value={comment}
+                    onChange={handleCommentChange}
+                />
+                <Button className={styles.button} variant="outline-secondary" onClick={handleCommentSubmit}>
+                    Post
+                </Button>
             </div>
+            <ul className={styles.commentList}>
+                {commentsList.map((comment, index) => (
+                    <li key={index} className={styles.comment}>
+                        <div className={styles.comment_text}>{comment.text}</div>
+                        <div className={styles.comment_date}>
+                            {comment.date.toLocaleString()}
+                        </div>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
