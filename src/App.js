@@ -49,18 +49,6 @@ function App() {
 
     }, [features,]);
 
-    function sortFeatures() {
-        /*
-            TODO: This can be improved by applying a more efficient sorting method
-            e.g. pigeonHole sort, comb sort, heap sort, etc.
-        */
-        for (let feature of features) {
-            if (feature.status === 'Open') {
-
-            }
-        }
-    }
-
     const handleFilterSelect = (filterName) => {
         if (selectedFilter === filterName) setSelectedFilter(null);
         else setSelectedFilter(filterName);
@@ -74,9 +62,6 @@ function App() {
         console.log('New amount: ' + amount)
 
         try {
-
-
-
             const featuresCopy = [...features];
             const mElem = featuresCopy.find((elem) => elem.id === id);
             mElem.votes = amount;
