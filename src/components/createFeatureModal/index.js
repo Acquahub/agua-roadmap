@@ -23,7 +23,7 @@ export default function CreateFeatureModal({ show, handleClose, onFeatureCreate 
             e.stopPropagation();
         } else {
             const newFeature = {
-                id: generateUniqueId(),
+                // id: generateUniqueId(),
                 title: title,
                 description: description,
                 tag: selectedTags,
