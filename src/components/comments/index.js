@@ -1,24 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './comments.module.css';
 
+import { collection, getDocs, addDoc, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseConfig';
 import { Button } from 'react-bootstrap';
 
-export default function Comments() {
+export default function Comments({ feature, onCommentPosted }) {
     const [comment, setComment] = useState('');
     const [commentsList, setCommentsList] = useState([]);
+
+    useEffect(() => {
+        if (feature.comments) {
+            setCommentsList(feature.comments);
+        }
+    }, [feature.comments]);
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
     };
 
-    const handleCommentSubmit = () => {
+    const handleCommentSubmit = async () => {
         if (comment.trim() !== '') {
             const currentDate = new Date();
             const newComment = {
                 text: comment,
                 date: currentDate,
             };
-            setCommentsList([...commentsList, newComment]);
+    
+            try {
+                const commentRef = await addDoc(collection(db, 'comments'), newComment);
+                const commentId = commentRef.id;
+    
+                // 2. Actualizar la feature con el comentario en Firebase
+                const updatedFeature = { ...feature, comments: [...feature.comments, commentId] };
+                const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
+                await updateDoc(featureRef, updatedFeature);
+    
+                // 3. Actualizar la lista local de comentarios
+                setCommentsList([...commentsList, newComment]);
+                onCommentPosted(feature, commentsList);
+            } catch (error) {
+                console.error("Error adding comment:", error);
+            }
+    
             setComment('');
         }
     };

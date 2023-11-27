@@ -27,6 +27,7 @@ function App() {
                 return statusOrder[a.status] - statusOrder[b.status];
             });
 
+
             setFeatures(sortedFeatures);
         };
 
@@ -84,6 +85,27 @@ function App() {
             console.error("Could not create a new feature in the database:", error);
         }
     };
+
+    const onCommentPosted = async (feature, commentsList) => {
+        feature.comments = commentsList;
+
+        try {
+            const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
+            await updateDoc(featureRef, { comments: commentsList });
+    
+            const indexToUpdate = features.findIndex((f) => f.id === feature.id);
+    
+            if (indexToUpdate !== -1) {
+                features[indexToUpdate] = feature;
+            } else {
+                features.push(feature);
+            }
+    
+            setFeatures([...features]);
+        } catch (error) {
+            console.error("Could not update feature in the database:", error);
+        }
+    };
     
 
     const allStatus = [...new Set(features.map((feature) => feature.status))];
@@ -111,6 +133,7 @@ function App() {
                 features={filteredFeatures}
                 status={allStatus}
                 onFeatureCreate={onFeatureCreate}
+                onCommentPosted={onCommentPosted}
             />
         </div>
     );

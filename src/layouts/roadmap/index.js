@@ -6,7 +6,7 @@ import FeaturesList from '../featuresList';
 import Subtitle from "../../components/subtitle";
 import CreateFeatureModal from "../../components/createFeatureModal";
 
-export default function RoadMap({ features, status, notifyParentVotesChanged, onFeatureCreate }) {
+export default function RoadMap({ features, status, notifyParentVotesChanged, onFeatureCreate, onCommentPosted }) {
 
     const [showFeatureForm, setShowFeatureForm] = useState(false);
 
@@ -66,12 +66,13 @@ export default function RoadMap({ features, status, notifyParentVotesChanged, on
                   key={status} 
                   title={status} 
                   features={featuresWithStatus} 
+                  onCommentPosted={onCommentPosted}
                 />
               );
             })
           }
-          <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} title="In Progress" features={[]} />
-          <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} title="Done" features={[]} />
+          <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} title="In Progress" features={[]} onCommentPosted={onCommentPosted} />
+          <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} title="Done" features={[]} onCommentPosted={onCommentPosted} />
           <CreateFeatureModal show={showFeatureForm} handleClose={handleCloseFeatureForm}  onFeatureCreate={onFeatureCreate}/>
         </div>
       </div>
@@ -92,7 +93,13 @@ export default function RoadMap({ features, status, notifyParentVotesChanged, on
           status.map((status) => {
             const featuresWithStatus = features.filter((feature) => feature.status === status);
             return (
-              <FeaturesList notifyParentVotesChanged={notifyParentVotesChanged} key={status} title={status} features={featuresWithStatus} />
+              <FeaturesList 
+                notifyParentVotesChanged={notifyParentVotesChanged} 
+                key={status} 
+                title={status} 
+                features={featuresWithStatus}  
+                onCommentPosted={onCommentPosted}
+              />
             );
           })
         }

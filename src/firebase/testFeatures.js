@@ -5,7 +5,7 @@ const features = [
       tag: "Feature Requests",
       status: "Open",
       votes: 10,
-      comments: []
+      comments: ["nice", "cool"]
     },
     {
       title: "Authentication Bug Fix",
@@ -13,7 +13,7 @@ const features = [
       tag: "Bug Reports",
       status: "In Progress",
       votes: 5,
-      comments: []
+      comments: ["ok"]
     },
     {
       title: "Integration with Third-Party API",
@@ -21,7 +21,7 @@ const features = [
       tag: "Integrations",
       status: "Done",
       votes: 8,
-      comments: []
+      comments: ["nice"]
     },
     {
       title: "New Notification Feature",

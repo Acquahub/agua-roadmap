@@ -6,7 +6,7 @@ import Subtitle from "../subtitle";
 import Tag from "../tag";
 import Comments from "../comments";
 
-export default function FeatureModal({ feature, userVoted, onClose, notifyParentVotesChanged, notifyUserVoted }) {
+export default function FeatureModal({ feature, userVoted, onClose, notifyParentVotesChanged, notifyUserVoted, onCommentPosted }) {
     return (
         <Modal show={true} onHide={onClose} centered size={"xl"}>
             <Modal.Header className={styles.modal_header} >
@@ -36,7 +36,7 @@ export default function FeatureModal({ feature, userVoted, onClose, notifyParent
             </Modal.Header>
 
             <Modal.Body>
-                <Comments />
+                <Comments feature={feature} onCommentPosted={onCommentPosted} />
             </Modal.Body>
 
             <Modal.Footer>

@@ -6,7 +6,7 @@ import Tag from '../../components/tag';
 import FeatureModal from '../../components/featureModal';
 import {useState} from "react";
 
-export default function Feature({ title, votes, description, tag, status, notifyParentVotesChanged }) {
+export default function Feature({ title, votes, description, tag, status, comments, notifyParentVotesChanged, onCommentPosted }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userVoted, setUserVoted] = useState(false);
   const [changingVotes, setVotes] = useState(parseInt(votes));
@@ -54,11 +54,13 @@ export default function Feature({ title, votes, description, tag, status, notify
                 tag: tag,
                 status: status,
                 votes: changingVotes,
+                comments: comments
               }}
               userVoted={userVoted}
               onClose={closeModal}
               notifyParentVotesChanged={notifyParentVotesChanged}
               notifyUserVoted={notifyUserVoted}
+              onCommentPosted={onCommentPosted}
           />
       )}
 

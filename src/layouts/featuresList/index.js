@@ -3,8 +3,9 @@ import styles from './featuresList.module.css';
 import Status from '../../components/status';
 
 import Feature from '../feature';
+import Comments from '../../components/comments';
 
-export default function FeaturesList({ title, features, notifyParentVotesChanged }) {
+export default function FeaturesList({ title, features, notifyParentVotesChanged, onCommentPosted }) {
 
     const sortedFeatures = features.slice().sort((a, b) => b.votes - a.votes);
 
@@ -29,7 +30,10 @@ export default function FeaturesList({ title, features, notifyParentVotesChanged
                                 votes={feature.votes}
                                 tag={feature.tag}
                                 description={feature.description}
-                                status={feature.status} />
+                                status={feature.status} 
+                                comments={feature.comments} 
+                                onCommentPosted={onCommentPosted}    
+                            />
                         );
                     })}
                 </div>
