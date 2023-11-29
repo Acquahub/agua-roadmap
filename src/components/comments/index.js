@@ -33,19 +33,24 @@ export default function Comments({ feature, onCommentPosted }) {
                     user: currentUser.email
                 };
 
-                try {
-                    const commentRef = await addDoc(collection(db, 'comments'), newComment);
-                    const commentId = commentRef.id;
+                console.log( newComment );
+                setCommentsList([...commentsList, newComment]);
+
+                // try {
+                //     const commentRef = await addDoc(collection(db, 'comments'), newComment);
+                //     const commentId = commentRef.id;
     
-                    const updatedFeature = { ...feature, comments: [...feature.comments, commentId] };
-                    const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
-                    await updateDoc(featureRef, updatedFeature);
+                //     const updatedFeature = { ...feature, comments: [...feature.comments, commentId] };
+                //     const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
+                //     await updateDoc(featureRef, updatedFeature);
     
-                    setCommentsList([...commentsList, newComment]);
-                    onCommentPosted(feature, commentsList);
-                } catch (error) {
-                    console.error("Error adding comment:", error);
-                }
+                    
+
+                    
+                //     //onCommentPosted(feature, commentsList);
+                // } catch (error) {
+                //     console.error("Error adding comment:", error);
+                // }
             }
             
             setComment('');
@@ -68,6 +73,7 @@ export default function Comments({ feature, onCommentPosted }) {
             <ul className={styles.commentList}>
                 {commentsList.map((comment, index) => (
                     <li key={index} className={styles.comment}>
+                        <div className={styles.comment_date}>{comment.user}</div>
                         <div className={styles.comment_text}>{comment.text}</div>
                         <div className={styles.comment_date}>
                             {comment.date.toLocaleString()}
