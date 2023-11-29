@@ -3,6 +3,7 @@ import styles from './comments.module.css';
 
 import { collection, getDocs, addDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
+import { auth } from '../../firebase/firebaseConfig';
 import { Button } from 'react-bootstrap';
 
 export default function Comments({ feature, onCommentPosted }) {
@@ -22,25 +23,31 @@ export default function Comments({ feature, onCommentPosted }) {
     const handleCommentSubmit = async () => {
         if (comment.trim() !== '') {
             const currentDate = new Date();
-            const newComment = {
-                text: comment,
-                date: currentDate,
-            };
+
+            const currentUser = auth.currentUser;
+
+            if(currentUser) {
+                const newComment = {
+                    text: comment,
+                    date: currentDate,
+                    user: currentUser.email
+                };
+
+                try {
+                    const commentRef = await addDoc(collection(db, 'comments'), newComment);
+                    const commentId = commentRef.id;
     
-            try {
-                const commentRef = await addDoc(collection(db, 'comments'), newComment);
-                const commentId = commentRef.id;
-
-                const updatedFeature = { ...feature, comments: [...feature.comments, commentId] };
-                const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
-                await updateDoc(featureRef, updatedFeature);
-
-                setCommentsList([...commentsList, newComment]);
-                onCommentPosted(feature, commentsList);
-            } catch (error) {
-                console.error("Error adding comment:", error);
+                    const updatedFeature = { ...feature, comments: [...feature.comments, commentId] };
+                    const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
+                    await updateDoc(featureRef, updatedFeature);
+    
+                    setCommentsList([...commentsList, newComment]);
+                    onCommentPosted(feature, commentsList);
+                } catch (error) {
+                    console.error("Error adding comment:", error);
+                }
             }
-    
+            
             setComment('');
         }
     };
