@@ -30,13 +30,11 @@ export default function Comments({ feature, onCommentPosted }) {
             try {
                 const commentRef = await addDoc(collection(db, 'comments'), newComment);
                 const commentId = commentRef.id;
-    
-                // 2. Actualizar la feature con el comentario en Firebase
+
                 const updatedFeature = { ...feature, comments: [...feature.comments, commentId] };
                 const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
                 await updateDoc(featureRef, updatedFeature);
-    
-                // 3. Actualizar la lista local de comentarios
+
                 setCommentsList([...commentsList, newComment]);
                 onCommentPosted(feature, commentsList);
             } catch (error) {
