@@ -4,6 +4,7 @@ import styles from './comments.module.css';
 import { collection, getDocs, addDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { auth } from '../../firebase/firebaseConfig';
+import { getAuth } from "firebase/auth";
 import { Button } from 'react-bootstrap';
 
 export default function Comments({ feature, onCommentPosted }) {
@@ -21,12 +22,17 @@ export default function Comments({ feature, onCommentPosted }) {
     };
 
     const handleCommentSubmit = async () => {
+        const auth = getAuth();
+
         if (comment.trim() !== '') {
             const currentDate = new Date();
 
             const currentUser = auth.currentUser;
+            console.log('aqui');
 
             if(currentUser) {
+                console.log('usuario activo');
+
                 const newComment = {
                     text: comment,
                     date: currentDate,
