@@ -79,19 +79,26 @@ function App() {
 
     const onFeatureCreate = async (newFeature) => {
         try {
-            const docRef = await addDoc(collection(db, process.env.REACT_APP_DATABASE_NAME), newFeature);
+            const docRef = await addDoc(collection(db, 'features'), newFeature);
             setFeatures([...features, { id: docRef.id, ...newFeature }]);
         } catch (error) {
             console.error("Could not create a new feature in the database:", error);
         }
     };
 
+    /**
+     * PROBLEMA 1: No se está actualizando la lista de comentarios de la feature
+     * PROBLEMA 2: La solicitud para actualizar las features en Firebase no está funcionando
+     */
     const onCommentPosted = async (feature, commentsList) => {
         feature.comments = commentsList;
+        console.log('Comentarios de la feature actualizados');
+        console.log(feature);
 
         try {
-            const featureRef = doc(db, process.env.REACT_APP_DATABASE_NAME, feature.id);
+            const featureRef = doc(db, 'features', feature.id);
             await updateDoc(featureRef, { comments: commentsList });
+            console.log('Lista de features actualizada en Firebase');
     
             const indexToUpdate = features.findIndex((f) => f.id === feature.id);
     

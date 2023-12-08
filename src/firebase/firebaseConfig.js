@@ -38,6 +38,7 @@ const db = getFirestore(app);
 const auth = getAuth();
 
 // User login for testing
+// (This user has to already exist in Firebase)
 const email = 'test.user@mail.com';
 const password = 'testing09876';
 
